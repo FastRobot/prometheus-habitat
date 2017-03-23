@@ -1,7 +1,7 @@
 pkg_name=prometheus
 pkg_description="Prometheus monitoring"
 pkg_upstream_url=http://prometheus.io
-pkg_origin=core
+pkg_origin=fastrobot
 pkg_version=1.5.2
 pkg_maintainer="Lamont Lucas <lamont@fastrobot.com>"
 pkg_license=('Apache-2.0')
@@ -16,8 +16,8 @@ pkg_exports=(
   [port-http]=ports.http
 )
 pkg_exposes=(port-http)
-pkg_bin_dirs=(prometheus)
-pkg_svc_run="prometheus -config.file=$pkg_prefix/prometheus.yml"
+pkg_bin_dirs=(prom)
+pkg_svc_run="prometheus -config.file=$pkg_svc_config_path/prometheus.yml"
 
 do_unpack() {
   cd "${HAB_CACHE_SRC_PATH}" || exit
@@ -29,7 +29,8 @@ do_build() {
 }
 
 do_install() {
-  mkdir ${pkg_prefix}/prometheus || true
-  cp ${HAB_CACHE_SRC_PATH}/${pkg_dirname}.linux-amd64/prometheus $pkg_prefix/prometheus 
-  cp ${HAB_CACHE_SRC_PATH}/${pkg_dirname}.linux-amd64/prometheus.yml $pkg_prefix/prometheus
+  mkdir ${pkg_prefix}/prom || true
+  cp ${HAB_CACHE_SRC_PATH}/${pkg_dirname}.linux-amd64/prometheus $pkg_prefix/prom/prometheus 
+  cp ${HAB_CACHE_SRC_PATH}/${pkg_dirname}.linux-amd64/prometheus.yml $pkg_svc_config_path/prometheus.yml
+  attach
 }
