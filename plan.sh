@@ -29,7 +29,7 @@ do_build() {
 }
 
 do_install() {
-  mkdir ${pkg_prefix}/prom || true
+  mkdir -p ${pkg_prefix}/prom 
   cp ${HAB_CACHE_SRC_PATH}/${pkg_dirname}.linux-amd64/prometheus $pkg_prefix/prom/prometheus 
-  cp ${HAB_CACHE_SRC_PATH}/${pkg_dirname}.linux-amd64/prometheus.yml $pkg_svc_config_path/prometheus.yml
+  #cp ${HAB_CACHE_SRC_PATH}/${pkg_dirname}.linux-amd64/prometheus.yml $pkg_svc_config_path/prometheus.yml
 }
