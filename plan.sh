@@ -29,6 +29,8 @@ do_prepare() {
   export GOPATH=$HAB_CACHE_SRC_PATH/$pkg_dirname
 }
 
+# look into using git clone --branch my_abc http://git.abc.net/git/abc.git
+
 do_unpack() {
   mkdir -p $prom_pkg_dir/src/github.com/prometheus/prometheus
   tar zxf "v${pkg_version}.tar.gz" --strip-components=1 -C ${prom_pkg_dir}/src/github.com/prometheus/prometheus
