@@ -1,0 +1,6 @@
+* fetch and compile source for prometheus
+* template config (most common sections)
+* add sd_files and dump config ring into it
+* leader/follower where leader probes and followers only scrape /federate
+* to_yaml handler to model the whole prometheus.yml in default.toml
+

@@ -1,3 +1,2 @@
-[ports]
-http = 9090
+listening_port = 9090
 
